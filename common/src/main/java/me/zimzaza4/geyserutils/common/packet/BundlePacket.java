@@ -19,5 +19,4 @@ public class BundlePacket extends CustomPayloadPacket {
     public void addPacket(CustomPayloadPacket packet) {
         this.packets.add(packet);
     }
-
 }

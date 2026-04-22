@@ -1,6 +1,5 @@
 package me.zimzaza4.geyserutils.common.manager;
 
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -20,7 +19,6 @@ public class PacketManager {
         objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
     }
 
-
     public byte[] encodePacket(CustomPayloadPacket packet) {
 
         try {
@@ -28,7 +26,6 @@ public class PacketManager {
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public CustomPayloadPacket decodePacket(byte[] bytes) {

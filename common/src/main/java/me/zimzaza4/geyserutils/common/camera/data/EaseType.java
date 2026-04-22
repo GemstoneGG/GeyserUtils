@@ -45,5 +45,4 @@ public enum EaseType {
         this.type = type;
         this.index = index;
     }
-
 }

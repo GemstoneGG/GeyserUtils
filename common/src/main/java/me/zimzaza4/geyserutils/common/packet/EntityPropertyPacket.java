@@ -14,5 +14,4 @@ public class EntityPropertyPacket<T> extends CustomPayloadPacket {
 
     private String identifier;
     private T value;
-
 }

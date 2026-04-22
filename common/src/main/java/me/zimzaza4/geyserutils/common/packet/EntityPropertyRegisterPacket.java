@@ -14,5 +14,4 @@ public class EntityPropertyRegisterPacket extends CustomPayloadPacket {
 
     private String identifier;
     private Class<?> type;
-
 }

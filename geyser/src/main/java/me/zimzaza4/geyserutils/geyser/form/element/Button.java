@@ -1,6 +1,5 @@
 package me.zimzaza4.geyserutils.geyser.form.element;
 
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lombok.Value;
@@ -12,6 +11,7 @@ import java.util.List;
 @Value
 @Accessors(fluent = true)
 public class Button {
+
     String text;
     List<String> commands;
     NpcDialogueButton.ButtonMode mode;

@@ -16,7 +16,6 @@ public class EntityUtils {
         packet.setWidth(width);
         packet.setHeight(height);
         player.sendPluginMessage(GeyserUtils.getInstance(), GeyserUtilsChannels.MAIN, GeyserUtils.getPacketManager().encodePacket(packet));
-
     }
 
     public static void sendCustomScale(Player player, int id, float scale) {
@@ -24,7 +23,6 @@ public class EntityUtils {
         packet.setEntityId(id);
         packet.setScale(scale);
         player.sendPluginMessage(GeyserUtils.getInstance(), GeyserUtilsChannels.MAIN, GeyserUtils.getPacketManager().encodePacket(packet));
-
     }
 
     public static void sendCustomColor(Player player, int id, Color color) {
@@ -32,7 +30,6 @@ public class EntityUtils {
         packet.setEntityId(id);
         packet.setColor(color.getRGB());
         player.sendPluginMessage(GeyserUtils.getInstance(), GeyserUtilsChannels.MAIN, GeyserUtils.getPacketManager().encodePacket(packet));
-
     }
 
     public static void sendVariant(Player player, int id, int variant) {
@@ -40,20 +37,12 @@ public class EntityUtils {
         packet.setEntityId(id);
         packet.setVariant(variant);
         player.sendPluginMessage(GeyserUtils.getInstance(), GeyserUtilsChannels.MAIN, GeyserUtils.getPacketManager().encodePacket(packet));
-
     }
-
 
     public static void setCustomEntity(Player player, int entityId, String def) {
         CustomEntityPacket packet = new CustomEntityPacket(entityId, def);
         player.sendPluginMessage(GeyserUtils.getInstance(), GeyserUtilsChannels.MAIN, GeyserUtils.getPacketManager().encodePacket(packet));
-
     }
-
-    // (yes I'm aware it's "horrible" code), also this aint player packets at all lmao
-    // right, so this part needs to be refactored xD
-    // the plugin didn't have this much functionality in its earliest days (it even just have camera shakes),
-    // so I didn't think too much about it
 
     public static void registerProperty(Player player, int id, String identifier, Class<?> type) {
         EntityPropertyRegisterPacket packet = new EntityPropertyRegisterPacket();

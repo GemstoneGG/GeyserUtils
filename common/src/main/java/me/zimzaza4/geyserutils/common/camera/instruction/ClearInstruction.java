@@ -13,6 +13,4 @@ public class ClearInstruction implements Instruction {
     public static ClearInstruction instance() {
         return INSTANCE;
     }
-
-
 }

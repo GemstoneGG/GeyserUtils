@@ -76,7 +76,6 @@ import java.util.concurrent.TimeUnit;
 
 public class GeyserUtils implements Extension {
 
-
     public static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(2);
     private static final Map<String, List<Map.Entry<String, Class<?>>>> properties = new HashMap<>();
     @Getter
@@ -162,17 +161,6 @@ public class GeyserUtils implements Extension {
     }
 
     public static void addCustomEntity(String id) {
-        /*
-        LOADED_ENTITY_DEFINITIONS.put(id,
-                EntityDefinition.builder()
-                        .identifier(EntityIdentifier.builder().identifier(id)
-                                .summonable(true)
-                                .spawnEgg(false).build())
-                        .height(0.6f)
-                        .width(0.6f)
-                        .build());
-
-         */
         if (GEYSER_LOADED) {
             registerEntityToGeyser(id);
         }
@@ -397,8 +385,6 @@ public class GeyserUtils implements Extension {
                 }
 
                 loadSkin(file.getName(), geometryFile, textureFile);
-
-
             }
         }
     }
@@ -540,10 +526,8 @@ public class GeyserUtils implements Extension {
             session.sendUpstreamPacket(animateEntityPacket);
         } else if (customPacket instanceof CustomEntityPacket customEntityPacket) {
             if (!LOADED_ENTITY_DEFINITIONS.containsKey(customEntityPacket.getIdentifier())) {
-                // System.out.println("Not a vaild entity:" + customEntityPacket.getEntityId());
                 return;
             }
-            // System.out.println("custom entity:" + customEntityPacket.getEntityId());
 
             Cache<Integer, String> cache = CUSTOM_ENTITIES.get(session);
             cache.put(customEntityPacket.getEntityId(), customEntityPacket.getIdentifier());
@@ -618,10 +602,6 @@ public class GeyserUtils implements Extension {
                     logger().info("DEF PROPERTIES: " + entityPropertyRegisterPacket.getIdentifier());
                 }
             }
-
-
         }
     }
-
 }
-

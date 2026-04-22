@@ -1,5 +1,6 @@
 package me.zimzaza4.geyserutils.spigot.api.form;
 
+import io.papermc.paper.threadedregions.scheduler.ScheduledTask;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,13 +13,13 @@ import me.zimzaza4.geyserutils.spigot.GeyserUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 import org.geysermc.floodgate.api.player.FloodgatePlayer;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -57,19 +58,16 @@ public class NpcDialogueForm {
             FORMS.put(formId.toString(), this);
 
             p.sendPluginMessage(GeyserUtils.getInstance(), GeyserUtilsChannels.MAIN, GeyserUtils.getPacketManager().encodePacket(data));
-            new BukkitRunnable() {
 
-                @Override
-                public void run() {
-                    if (!FORMS.containsKey(formId.toString())) {
-                        this.cancel();
-                    }
-                    if (!p.isOnline()) {
-                        FORMS.remove(formId.toString());
-                    }
-
+            Bukkit.getAsyncScheduler().runAtFixedRate(GeyserUtils.getInstance(), (ScheduledTask task) -> {
+                if (!FORMS.containsKey(formId.toString())) {
+                    task.cancel();
+                    return;
                 }
-            }.runTaskTimerAsynchronously(GeyserUtils.getInstance(), 10, 10);
+                if (!p.isOnline()) {
+                    FORMS.remove(formId.toString());
+                }
+            }, 500L, 500L, TimeUnit.MILLISECONDS);
         }
     }
 }

@@ -14,7 +14,6 @@ public class NPCFormResponseTranslator extends PacketTranslator<NpcRequestPacket
     @Override
     public void translate(GeyserSession geyserSession, NpcRequestPacket packet) {
 
-        // System.out.println(packet);
         NpcDialogueForm form = NpcDialogueForms.getOpenNpcDialogueForms(geyserSession);
 
         if (form == null) {
@@ -23,12 +22,10 @@ public class NPCFormResponseTranslator extends PacketTranslator<NpcRequestPacket
 
         if (packet.getRequestType().equals(NpcRequestType.EXECUTE_CLOSING_COMMANDS)) {
             if (packet.getSceneName().equals(form.sceneName())) {
-                // System.out.println("CLOSE FORM");
                 form.close(geyserSession);
                 return;
             }
         }
-
 
         Button button = form.dialogueButtons().get(packet.getActionType());
 
@@ -42,6 +39,5 @@ public class NPCFormResponseTranslator extends PacketTranslator<NpcRequestPacket
                 form.close(geyserSession);
             }
         }
-
     }
 }

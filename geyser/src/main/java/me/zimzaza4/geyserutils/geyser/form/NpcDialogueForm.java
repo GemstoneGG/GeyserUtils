@@ -108,8 +108,6 @@ public class NpcDialogueForm {
 
         player.sendUpstreamPacket(npcDialoguePacket);
         NpcDialogueForms.addNpcDialogueForm(player, this);
-
-
     }
 
     public void close(GeyserSession player) {

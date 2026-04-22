@@ -66,6 +66,4 @@ public class ReflectionUtils {
         if (OLD_VERSION) return key;
         return KEY_BUILD_METHOD.invoke(null, key);
     }
-
-
 }

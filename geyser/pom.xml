@@ -44,7 +44,6 @@
         </resources>
     </build>
 
-
     <repositories>
         <repository>
             <id>opencollab-release-repo</id>

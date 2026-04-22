@@ -18,7 +18,6 @@ import java.util.Map;
 
 public class PlayerUtils {
 
-
     public static void shakeCamera(Player player, float intensity, float duration, int type) {
         player.sendPluginMessage(GeyserUtils.getInstance(), GeyserUtilsChannels.MAIN, GeyserUtils.getPacketManager().encodePacket(new CameraShakeCustomPayloadPacket(intensity, duration, type)));
     }
@@ -37,14 +36,12 @@ public class PlayerUtils {
         packet.parseFromAnimation(animation);
         packet.setEntityJavaIds(entityList);
         player.sendPluginMessage(GeyserUtils.getInstance(), GeyserUtilsChannels.MAIN, GeyserUtils.getPacketManager().encodePacket(packet));
-
     }
 
     public static void sendCameraInstruction(Player player, Instruction instruction) {
         CameraInstructionCustomPayloadPacket packet = new CameraInstructionCustomPayloadPacket();
         packet.setInstruction(instruction);
         player.sendPluginMessage(GeyserUtils.getInstance(), GeyserUtilsChannels.MAIN, GeyserUtils.getPacketManager().encodePacket(packet));
-
     }
 
     public static void sendCustomParticle(Player player, Location location, CustomParticle particle) {
@@ -59,7 +56,6 @@ public class PlayerUtils {
         skinPayloadPacket.setSkinId(skin);
         skinPayloadPacket.setEntityId(entity.getEntityId());
         player.sendPluginMessage(GeyserUtils.getInstance(), GeyserUtilsChannels.MAIN, GeyserUtils.getPacketManager().encodePacket(skinPayloadPacket));
-
     }
 
     public static void sendCustomHitBox(Player player, Entity entity, float height, float width) {
@@ -77,11 +73,6 @@ public class PlayerUtils {
     public static void setCustomEntity(Player player, int id, String def) {
         EntityUtils.setCustomEntity(player, id, def);
     }
-
-    // (yes I'm aware it's "horrible" code), also this aint player packets at all lmao
-    // right, so this part needs to be refactored xD
-    // the plugin didn't have this much functionality in its earliest days (it even just have camera shakes),
-    // so I didn't think too much about it
 
     public static void registerProperty(Player player, Entity entity, String identifier, Class<?> type) {
         EntityUtils.registerProperty(player, entity.getEntityId(), identifier, type);

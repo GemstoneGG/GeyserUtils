@@ -15,7 +15,7 @@ public class MountFix {
     public static void start() {
         // just keep send SetEntityLinkPacket to fix the mount bug
         // https://github.com/GeyserMC/Geyser/issues/3302
-        // if the vehicle is too fast, the problem appear
+        // if the vehicle is too fast, the problem appears
         Executors.newSingleThreadScheduledExecutor()
                 .scheduleAtFixedRate(() -> {
                     try {
@@ -38,8 +38,5 @@ public class MountFix {
                         t.printStackTrace();
                     }
                 }, 200, 50, TimeUnit.MILLISECONDS);
-
-
     }
-
 }

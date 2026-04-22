@@ -14,5 +14,4 @@ import me.zimzaza4.geyserutils.common.util.Pos;
 public class CustomParticleEffectPayloadPacket extends CustomPayloadPacket {
     private CustomParticle particle;
     private Pos pos;
-
 }

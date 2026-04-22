@@ -24,5 +24,4 @@ public class NpcDialogueFormDataCustomPayloadPacket extends CustomPayloadPacket 
     List<NpcDialogueButton> buttons;
     String action;
     boolean hasNextForm;
-
 }

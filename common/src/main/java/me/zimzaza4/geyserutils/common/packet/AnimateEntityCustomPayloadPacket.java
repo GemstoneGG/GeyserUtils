@@ -26,5 +26,4 @@ public class AnimateEntityCustomPayloadPacket extends CustomPayloadPacket {
         this.controller = ani.getController();
         this.stopExpressionVersion = ani.getStopExpressionVersion();
     }
-
 }

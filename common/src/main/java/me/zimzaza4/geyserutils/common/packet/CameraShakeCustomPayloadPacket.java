@@ -12,5 +12,4 @@ public class CameraShakeCustomPayloadPacket extends CustomPayloadPacket {
     float intensity;
     float duration;
     int type;
-
 }

@@ -37,7 +37,6 @@ public class Converter {
             cbPreset.setYaw(preset.getRot().y());
         }
 
-
         return cbPreset;
     }
 
@@ -53,7 +52,6 @@ public class Converter {
         return new CameraFadeInstruction.TimeData(time.fadeIn(), time.hold(), time.fadeOut());
     }
 
-
     public static Vector3f serializePos(Pos pos) {
         return Vector3f.from(pos.x(), pos.y(), pos.z());
     }
@@ -61,7 +59,6 @@ public class Converter {
     public static Vector2f serializeRot(Rot rot) {
         return Vector2f.from(rot.x(), rot.y());
     }
-
 
     public static CameraFade serializeFadeInstruction(FadeInstruction instruction) {
         CameraFade.Builder builder = CameraFade.builder();
@@ -77,7 +74,6 @@ public class Converter {
         }
 
         return builder.build();
-
     }
 
     public static CameraPerspective serializeCameraPerspective(CameraPreset preset) {
@@ -86,6 +82,7 @@ public class Converter {
                 return value;
             }
         }
+
         return CameraPerspective.FREE;
     }
 
@@ -98,22 +95,25 @@ public class Converter {
             builder.easeType(CameraEaseType.values()[instruction.getEase().easeType()]);
             builder.easeSeconds(instruction.getEase().time());
         }
+
         if (instruction.getPos() != null) {
             builder.position(serializePos(instruction.getPos()));
         }
+
         if (instruction.getRot() != null) {
             builder.rotationX((int) instruction.getRot().x());
             builder.rotationY((int) instruction.getRot().y());
 
         }
+
         if (instruction.getFacing() != null) {
             builder.facingPosition(serializePos(instruction.getFacing()));
         }
+
         if (instruction.getFade() != null) {
             builder.cameraFade(serializeFadeInstruction(instruction.getFade()));
         }
+
         return builder.build();
-
     }
-
 }

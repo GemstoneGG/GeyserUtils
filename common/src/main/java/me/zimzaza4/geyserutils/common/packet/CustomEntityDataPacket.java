@@ -16,5 +16,4 @@ public class CustomEntityDataPacket extends CustomPayloadPacket {
     private Float scale;
     private Integer color;
     private Integer variant;
-
 }

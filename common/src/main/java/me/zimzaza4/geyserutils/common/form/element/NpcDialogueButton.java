@@ -20,5 +20,4 @@ public class NpcDialogueButton {
         ON_ENTER,
         ON_EXIT
     }
-
 }

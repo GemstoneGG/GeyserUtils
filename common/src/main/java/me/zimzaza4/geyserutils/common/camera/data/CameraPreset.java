@@ -10,6 +10,7 @@ import java.util.TreeMap;
 
 @Getter
 public class CameraPreset {
+
     private static final Map<String, CameraPreset> PRESETS = new TreeMap<>();
     public static CameraPreset FIRST_PERSON;
     public static CameraPreset FREE;
@@ -26,6 +27,7 @@ public class CameraPreset {
     private Rot rot;
     @Getter
     private int id;
+
     @Builder
     public CameraPreset(String identifier, String inheritFrom, @Nullable Pos pos, @Nullable Rot rot) {
         this.identifier = identifier;
@@ -33,8 +35,8 @@ public class CameraPreset {
         this.pos = pos;
         this.rot = rot;
     }
-    protected CameraPreset() {
 
+    protected CameraPreset() {
     }
 
     public static Map<String, CameraPreset> getPresets() {
@@ -52,8 +54,8 @@ public class CameraPreset {
             }
             PRESETS.put(preset.getIdentifier(), preset);
         }
+
         int id = 0;
-        //重新分配id
         for (var preset : presets) {
             preset.id = id++;
         }

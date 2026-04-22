@@ -47,8 +47,6 @@ public final class GeyserUtils extends JavaPlugin {
                             }
                             NpcDialogueForm.FORMS.remove(response.getFormId());
                         }
-
-
                     }
                 }
             }
@@ -59,5 +57,4 @@ public final class GeyserUtils extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
     }
-
 }
